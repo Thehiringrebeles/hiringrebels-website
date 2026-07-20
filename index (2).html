@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiring Rebels — Global Talent Acquisition Partner</title>
+<meta name="description" content="Hiring Rebels is a global recruitment and workforce solutions firm helping organizations discover, attract, and secure exceptional professionals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --bg-card:#151513;
+    --bg-card-2:#1b1a17;
+    --gold:#d4b24c;
+    --gold-bright:#e8c968;
+    --gold-dim:#8a712f;
+    --text:#f5f4ef;
+    --text-muted:#a8a49b;
+    --line:#2a2924;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--gold); color:#0b0b0b;}
+
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    line-height:1.05;
+  }
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:12.5px;
+    color:var(--gold);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:20px 0;
+    transition:background 0.35s ease, padding 0.35s ease, border-color 0.35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(11,11,11,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 0;
+    border-color:var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between;}
+  .logo{
+    font-family:'Anton', sans-serif;
+    font-size:20px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex; gap:36px; align-items:center;}
+  .nav-links a{
+    font-size:13.5px; font-weight:600; letter-spacing:0.03em;
+    text-transform:uppercase; color:var(--text-muted);
+    transition:color 0.2s ease;
+    position:relative;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--text);}
+  .nav-cta{
+    border:1px solid var(--gold);
+    color:var(--gold) !important;
+    padding:10px 20px;
+    border-radius:2px;
+    font-size:12.5px !important;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--bg) !important;}
+  .menu-btn{display:none; background:none; border:none; color:var(--text); font-size:26px; cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+    padding:140px 0 80px;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% 10%, rgba(212,178,76,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 10% 90%, rgba(212,178,76,0.06), transparent 60%),
+      var(--bg);
+  }
+  .hero-tag{
+    font-size:13px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:22px;
+    opacity:0; animation:fadeUp 0.8s ease forwards; animation-delay:0.1s;
+  }
+  .hero h1{
+    font-size:clamp(48px, 9vw, 118px);
+    color:var(--text);
+    opacity:0; animation:fadeUp 0.9s ease forwards; animation-delay:0.25s;
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--gold);
+    display:block;
+  }
+  .hero p.sub{
+    max-width:560px; font-size:17px; color:var(--text-muted); margin-top:26px;
+    opacity:0; animation:fadeUp 0.9s ease forwards; animation-delay:0.4s;
+  }
+  .hero-cta-row{
+    display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;
+    opacity:0; animation:fadeUp 0.9s ease forwards; animation-delay:0.55s;
+  }
+  .btn-primary{
+    background:var(--gold); color:#0b0b0b; font-weight:700; font-size:14px;
+    padding:16px 32px; border-radius:2px; letter-spacing:0.02em;
+    transition:transform 0.2s ease, background 0.2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--gold-bright); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--text); font-weight:600; font-size:14px;
+    padding:16px 32px; border-radius:2px;
+    transition:border-color 0.2s ease, background 0.2s ease;
+    display:inline-block;
+  }
+  .btn-ghost:hover{border-color:var(--gold); background:rgba(212,178,76,0.06);}
+
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(22px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .stat-strip{
+    margin-top:80px;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+    opacity:0; animation:fadeUp 0.9s ease forwards; animation-delay:0.7s;
+  }
+  .stat{padding:26px 20px 0; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Anton',sans-serif; font-size:clamp(26px,3vw,40px); color:var(--gold);}
+  .stat .label{font-size:12.5px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-top:6px;}
+
+  /* SECTION GENERIC */
+  section{padding:110px 0;}
+  .section-head{max-width:680px; margin-bottom:60px;}
+  .section-head h2{font-size:clamp(32px,4.5vw,52px);}
+  .section-head p{color:var(--text-muted); font-size:16px; margin-top:16px;}
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  #about{border-top:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:70px; align-items:start;}
+  .about-grid p{color:var(--text-muted); font-size:16.5px; margin-bottom:18px;}
+  .pillars{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .pillar{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:4px;
+    padding:22px; font-size:14.5px; font-weight:600;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .pillar:hover{border-color:var(--gold-dim); transform:translateY(-3px);}
+
+  /* VISION MISSION */
+  #vm{background:var(--bg-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .vm-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .vm-card h3{color:var(--gold); font-size:22px; margin-bottom:16px;}
+  .vm-card p{color:var(--text-muted); font-size:16px;}
+
+  /* GRID CARDS (why us / services) */
+  .card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .mini-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:4px;
+    padding:24px 22px; transition:border-color 0.25s ease, background 0.25s ease;
+  }
+  .mini-card:hover{border-color:var(--gold-dim); background:var(--bg-card-2);}
+  .mini-card .n{color:var(--gold); font-size:12px; font-weight:700; letter-spacing:0.08em; margin-bottom:10px; display:block;}
+  .mini-card h4{font-size:16px; font-weight:700; line-height:1.35;}
+
+  /* INDUSTRIES / regions - pill layout */
+  .pill-grid{display:flex; flex-wrap:wrap; gap:12px;}
+  .pill{
+    border:1px solid var(--line); padding:12px 20px; border-radius:30px;
+    font-size:14px; font-weight:600; color:var(--text-muted);
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .pill:hover{border-color:var(--gold); color:var(--text);}
+
+  /* PROCESS - numbered (legit sequence) */
+  #process{background:var(--bg-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .process-row{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  .step{padding:0 26px 0 0; border-right:1px solid var(--line); position:relative;}
+  .step:last-child{border-right:none; padding-right:0;}
+  .step:not(:first-child){padding-left:26px;}
+  .step .num{font-family:'Anton',sans-serif; font-size:38px; color:var(--gold-dim);}
+  .step h4{font-size:15.5px; margin:14px 0 10px; text-transform:none; font-family:'Inter'; font-weight:700; letter-spacing:0;}
+  .step p{font-size:14px; color:var(--text-muted);}
+
+  /* METRICS */
+  .metric-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .metric{background:var(--bg); padding:36px 28px;}
+  .metric .num{font-family:'Anton',sans-serif; font-size:clamp(30px,3.4vw,44px); color:var(--gold);}
+  .metric .label{font-size:13px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;}
+
+  /* CONTACT */
+  #contact{background:var(--bg-card); border-top:1px solid var(--line);}
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
+  .contact-info p{color:var(--text-muted); margin-bottom:30px; font-size:16px;}
+  .contact-line{display:flex; align-items:center; gap:14px; margin-bottom:20px; font-size:15.5px; font-weight:600;}
+  .contact-line .ic{color:var(--gold); font-size:18px;}
+  form{display:flex; flex-direction:column; gap:16px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;}
+  .field input, .field textarea{
+    width:100%; background:var(--bg); border:1px solid var(--line); border-radius:3px;
+    padding:14px 16px; color:var(--text); font-family:'Inter'; font-size:15px;
+    transition:border-color 0.2s ease;
+  }
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--gold);}
+  .field textarea{resize:vertical; min-height:110px;}
+  .form-msg{font-size:14px; margin-top:6px; min-height:20px;}
+  .form-msg.ok{color:#8fce8f;}
+  .form-msg.err{color:#e08a8a;}
+
+  footer{
+    border-top:1px solid var(--line); padding:36px 0;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  footer .logo{font-size:15px;}
+  footer p{color:var(--text-muted); font-size:13px;}
+
+  @media (max-width:900px){
+    .about-grid, .vm-grid, .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .metric-grid{grid-template-columns:1fr 1fr;}
+    .process-row{grid-template-columns:1fr 1fr; row-gap:36px;}
+    .step{border-right:none !important; padding:0 !important;}
+    .stat-strip{grid-template-columns:1fr 1fr; row-gap:26px;}
+    .stat:nth-child(2n){border-right:none;}
+  }
+  @media (max-width:640px){
+    .nav-links{
+      position:fixed; top:0; right:0; height:100vh; width:78%; max-width:320px;
+      background:#0e0e0c; flex-direction:column; justify-content:center; align-items:flex-start;
+      padding:40px; gap:26px; transform:translateX(100%); transition:transform 0.35s ease;
+      border-left:1px solid var(--line);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-btn{display:block;}
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .pillars{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">HIRING <span>REBELS</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#why">Why Us</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="nav-cta">Get In Touch</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-tag">Global Talent Acquisition Partner</div>
+    <h1>Discovering<em>Real Talent.</em></h1>
+    <p class="sub">Hiring Rebels is a global recruitment and workforce solutions firm helping organizations discover, attract, and secure exceptional professionals — combining data-driven sourcing with a candidate-first philosophy.</p>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">Build Your Team</a>
+      <a href="#about" class="btn-ghost">Learn More</a>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">27+</div><div class="label">Industries Served</div></div>
+      <div class="stat"><div class="num">7</div><div class="label">Regions Covered</div></div>
+      <div class="stat"><div class="num">10K+</div><div class="label">Placements Delivered</div></div>
+      <div class="stat"><div class="num">92%</div><div class="label">Client Retention</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow">About Us</div>
+        <h2 style="font-size:clamp(28px,3.5vw,42px); margin-bottom:22px;">A Recruitment Partner Built for the Modern Enterprise</h2>
+        <p>We combine data-driven sourcing, deep industry expertise, and a candidate-first philosophy to deliver talent outcomes that hold up at scale.</p>
+        <p>What began as a focused staffing practice has grown into a full-spectrum talent partner — serving startups, enterprises, and Fortune 500 organizations across seven regions.</p>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar">Ethical, transparent recruitment</div>
+        <div class="pillar">Speed without sacrificing quality</div>
+        <div class="pillar">Global reach, local precision</div>
+        <div class="pillar">Data-driven talent decisions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vm">
+  <div class="wrap">
+    <div class="eyebrow reveal">Purpose</div>
+    <div class="vm-grid">
+      <div class="vm-card reveal">
+        <h3>Our Vision</h3>
+        <p>To become one of the world's most trusted recruitment and workforce solutions companies by connecting exceptional talent with exceptional organizations.</p>
+      </div>
+      <div class="vm-card reveal">
+        <h3>Our Mission</h3>
+        <p>Helping businesses grow by discovering, attracting, and delivering outstanding professionals through fast, ethical, and strategic recruitment solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Hiring Rebels</div>
+      <h2>The Advantage of a Dedicated Talent Partner</h2>
+    </div>
+    <div class="card-grid reveal">
+      <div class="mini-card"><h4>Fast Turnaround Time</h4></div>
+      <div class="mini-card"><h4>Quality-Driven Hiring</h4></div>
+      <div class="mini-card"><h4>Experienced Recruitment Team</h4></div>
+      <div class="mini-card"><h4>Global Talent Network</h4></div>
+      <div class="mini-card"><h4>Passive Candidate Access</h4></div>
+      <div class="mini-card"><h4>Industry Expertise</h4></div>
+      <div class="mini-card"><h4>Transparent Communication</h4></div>
+      <div class="mini-card"><h4>Dedicated Account Management</h4></div>
+      <div class="mini-card"><h4>Lower Hiring Costs</h4></div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>Deep Bench Strength Across 25+ Verticals</h2>
+    </div>
+    <div class="pill-grid reveal">
+      <div class="pill">Information Technology & AI</div>
+      <div class="pill">Healthcare & Pharmaceutical</div>
+      <div class="pill">Manufacturing & Engineering</div>
+      <div class="pill">Construction</div>
+      <div class="pill">Finance, Banking & Insurance</div>
+      <div class="pill">Retail & E-commerce</div>
+      <div class="pill">Logistics & Supply Chain</div>
+      <div class="pill">Automotive</div>
+      <div class="pill">Telecommunications & Energy</div>
+      <div class="pill">Government Contractors</div>
+      <div class="pill">Startups & GCCs</div>
+      <div class="pill">Education & Hospitality</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Services</div>
+      <h2>Recruitment Solutions Across Every Hiring Need</h2>
+    </div>
+    <div class="card-grid reveal">
+      <div class="mini-card"><span class="n">01</span><h4>Permanent Staffing</h4></div>
+      <div class="mini-card"><span class="n">02</span><h4>Contract Staffing</h4></div>
+      <div class="mini-card"><span class="n">03</span><h4>RPO</h4></div>
+      <div class="mini-card"><span class="n">04</span><h4>Executive Search</h4></div>
+      <div class="mini-card"><span class="n">05</span><h4>Talent Acquisition</h4></div>
+      <div class="mini-card"><span class="n">06</span><h4>Global Recruitment</h4></div>
+      <div class="mini-card"><span class="n">07</span><h4>IT & Non-IT Staffing</h4></div>
+      <div class="mini-card"><span class="n">08</span><h4>Bulk & Leadership Hiring</h4></div>
+      <div class="mini-card"><span class="n">09</span><h4>Campus Recruitment</h4></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Recruitment Process</div>
+      <h2>A Disciplined Process, From Discovery to Retention</h2>
+    </div>
+    <div class="process-row reveal">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>Discovery & Mapping</h4>
+        <p>Client discovery, requirement analysis, and market mapping.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>Research & Sourcing</h4>
+        <p>Boolean search, LinkedIn talent mapping, passive outreach.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>Assessment</h4>
+        <p>Screening, technical assessment, interview coordination.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h4>Placement & Growth</h4>
+        <p>Offer management, verification, joining and post-placement support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metrics">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Key Performance Metrics</div>
+      <h2>Measured. Managed. Continuously Improved.</h2>
+    </div>
+    <div class="metric-grid reveal">
+      <div class="metric"><div class="num">48 hrs</div><div class="label">Avg. Time to Submit</div></div>
+      <div class="metric"><div class="num">21 days</div><div class="label">Avg. Time to Hire</div></div>
+      <div class="metric"><div class="num">94%</div><div class="label">Offer Acceptance Rate</div></div>
+      <div class="metric"><div class="num">90%+</div><div class="label">Candidate Retention (12 mo)</div></div>
+      <div class="metric"><div class="num">4.8/5</div><div class="label">Client Satisfaction</div></div>
+      <div class="metric"><div class="num">97%</div><div class="label">Fulfillment Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 style="font-size:clamp(28px,3.5vw,42px); margin-bottom:20px;">Let's Build Your Next Great Team</h2>
+        <p>Partner with Hiring Rebels to build exceptional teams that drive innovation, business growth, and long-term success.</p>
+        <div class="contact-line"><span class="ic">&#9993;</span> hello@hiringrebels.com</div>
+        <div class="contact-line"><span class="ic">&#9742;</span> +1 (000) 000-0000</div>
+        <div class="contact-line"><span class="ic">&#128205;</span> Global Offices — US · UK · India · UAE</div>
+      </div>
+      <form class="reveal" id="contactForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell us what you're hiring for..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="border:none; cursor:pointer;">Send Message</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; width:100%;">
+    <a href="#top" class="logo">HIRING <span>REBELS</span></a>
+    <p>&copy; 2026 Hiring Rebels. Discovering Real Talent.</p>
+  </div>
+</footer>
+
+<script>
+  // Header background on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Contact form — replace FORM_ENDPOINT with your free Formspree endpoint (see README)
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // <-- set this up, instructions in README
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if(FORM_ENDPOINT.includes("YOUR_FORM_ID")){
+      // Fallback: open the user's email client with a pre-filled message
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent("New enquiry from " + name);
+      const body = encodeURIComponent(message + "\n\nFrom: " + name + " (" + email + ")");
+      window.location.href = `mailto:hello@hiringrebels.com?subject=${subject}&body=${body}`;
+      formMsg.textContent = "Opening your email app...";
+      formMsg.className = "form-msg ok";
+      return;
+    }
+    formMsg.textContent = "Sending...";
+    formMsg.className = "form-msg";
+    try{
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {"Accept":"application/json"},
+        body: new FormData(form)
+      });
+      if(res.ok){
+        formMsg.textContent = "Thanks — we'll be in touch shortly.";
+        formMsg.className = "form-msg ok";
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch(err){
+      formMsg.textContent = "Something went wrong. Please email hello@hiringrebels.com directly.";
+      formMsg.className = "form-msg err";
+    }
+  });
+</script>
+
+</body>
+</html>
